@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Zasylogic_Evaluacion.props" />
+</Project>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Zasylogic_Evaluacion.props" />
+</Project>

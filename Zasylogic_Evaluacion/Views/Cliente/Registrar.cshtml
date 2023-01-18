@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header text-center h2">
+        FORMULARIO WEB DE ATENCION AL CLIENTE
+    </div>
+    <div class="card-body">
+        <form method="post" class="form">
+            <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellidos:</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Celular:</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email:</label>
+                <input type="email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="col-sm-2 form-label">Sexo:</label>
+                <div class="col-sm-3">
+                    <input type="radio" name="gender" value="H" checked />Hombre
+                    <input type="radio" name="gender" value="M" />Mujer
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="col-sm-2 form-label">Motivo</label>
+                <div class="col-sm-3">
+                    <select class="form-control">
+                        <option value="incidencia">Incidencia</option>
+                        <option value="Queja">Queja</option>
+                        <option value="Reclamacion">Reclamación</option>
+                        <option value="Sugerencia">Sugerencia</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SQLPopup">ENVIAR</button>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="modal fade" id="SQLPopup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Acciones</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Primera:</h4>
+                <p> SELECT * FROM ATENCION_CLIENTE WHERE celular = _celular and fecha = GETDATE() and motivo in ('Incidencia','Queja','Reclamacion') </p>
+                <h4>Segunda:</h4>
+                <p> INSERT INTO ATENCION_CLIENTE(nombre, apellidos, celular, email, sexo, motivo, fecha_alta) VALUES (_nombre, _apellidos, _celular, _email, _sexo, _motivo, GETDATE() </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
